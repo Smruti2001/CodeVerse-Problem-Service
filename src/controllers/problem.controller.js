@@ -23,25 +23,46 @@ async function addProblem(req, res, next) {
     }
 }
 
-function getProblem(req, res, next) {
+async function getProblems(req, res, next) {
     try {
-        throw new NotImplemented('getProblem');
+        const problems = await problemService.getAllProblems();
+
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            message: 'Successfully fetched all the problems',
+            error: {},
+            data: problems
+        })
     } catch (error) {
         next(error);
     }
 }
 
-function getProblems(req, res, next) {
+async function getProblem(req, res, next) {
     try {
-        throw new NotImplemented('getProblems');
+        const problem = await problemService.getProblem(req.params.id);
+
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            message: 'Successfully fetched a problem',
+            error: {},
+            data: problem
+        })
     } catch (error) {
         next(error);
     }
 }
 
-function deleteProblem(req, res, next) {
+async function deleteProblem(req, res, next) {
     try {
-        throw new NotImplemented('deleteProblem');
+        const deletedProblem = await problemService.deleteProblem(req.params.id);
+
+        return res.status(StatusCodes.OK).json({
+            success: true,
+            message: 'Successfully deleted the problem',
+            error: {},
+            data: deletedProblem
+        })
     } catch (error) {
         next(error);
     }

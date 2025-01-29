@@ -15,6 +15,21 @@ class ProblemService {
         return problem;
     }
 
+    async getAllProblems() {
+        const problems = await this.problemRepository.getAllProblems();
+        return problems;
+    }
+
+    async getProblem(id) {
+        const problem = await this.problemRepository.getProblem(id);
+        return problem;
+    }
+
+    async deleteProblem(id) {
+        const deletedProblem = await this.problemRepository.deleteProblem(id);
+        return deletedProblem;
+    }
+
 }
 
 module.exports = ProblemService;
