@@ -13,6 +13,10 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "http-status-codes": "^2.3.0",
-    "nodemon": "^3.1.9"
+    "marked": "^15.0.6",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9",
+    "sanitize-html": "^2.14.0",
+    "turndown": "^7.2.0"
   }
 }
