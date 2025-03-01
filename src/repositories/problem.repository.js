@@ -8,6 +8,7 @@ class ProblemRepository {
             const problem = await Problem.create({
                 title: problemData.title,
                 description: problemData.description,
+                codeStubs: problemData.codeStubs,
                 testCases: (problemData.testCases) ? problemData.testCases : []
             });
 
@@ -70,6 +71,10 @@ class ProblemRepository {
 
             if (problemData.testCases) {
                 updateObject.testCases = problemData.testCases
+            }
+
+            if(problemData.codeStubs) {
+                updateObject.codeStubs = problemData.codeStubs
             }
 
             const updatedProblem = await Problem.findOneAndUpdate({ _id: id }, updateObject, { new: true });
